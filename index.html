@@ -47,8 +47,6 @@
 </head>
 
 <body>
-
-
     <section class="hero">
         <div class="hero-body">
             <div class="container is-max-desktop">
@@ -128,7 +126,7 @@
     </section>
 
 
-    <section class="section hero is-light">
+    <section class="section">
         <div class="container is-max-desktop">
             <!-- Abstract. -->
             <div class="columns is-centered has-text-centered">
@@ -147,48 +145,45 @@
                     </div>
                 </div>
             </div>
-        </div>
         <!--/ Abstract. -->
 
         <!-- Method. -->
-        <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-                <h2 class="title is-3">Method</h2>
-                <div class="content has-text-justified">
-                    <p>
-                        We introduce a task-driven asynchronous active vision-action model for robotic manipulation in scenarios with limited observation. The model uses a dual-agent structure, with a Next-Best-View (NBV) agent selecting optimal viewpoints and a Next-Best-Pose (NBP) agent determining gripper actions based on those viewpoints. It alternates between sensor and motor actions to actively interact with the environment and achieve task goals.
-                    </p>
-                    <p>
-                        The model is trained using few-shot reinforcement learning, with viewpoint-aware demo augmentation to maximize the use of limited demonstrations. A viewpoint-centric voxel alignment technique is employed to reduce observation space complexity, and task-agnostic auxiliary rewards help stabilize training by promoting effective interactions and informative viewpoint selection.
-                    </p>
-                </div>
-                <div class="content" style="margin-top: 30px;">
-                    <img src="./static/images/framework.png" alt="" srcset="" />
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Method</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We introduce a task-driven asynchronous active vision-action model for robotic manipulation in scenarios with limited observation. The model uses a dual-agent structure, with a Next-Best-View (NBV) agent selecting optimal viewpoints and a Next-Best-Pose (NBP) agent determining gripper actions based on those viewpoints. It alternates between sensor and motor actions to actively interact with the environment and achieve task goals.
+                        </p>
+                        <p>
+                            The model is trained using few-shot reinforcement learning, with viewpoint-aware demo augmentation to maximize the use of limited demonstrations. A viewpoint-centric voxel alignment technique is employed to reduce observation space complexity, and task-agnostic auxiliary rewards help stabilize training by promoting effective interactions and informative viewpoint selection.
+                        </p>
+                    </div>
+                    <div class="content" style="margin-top: 30px;">
+                        <img src="./static/images/framework.png" alt="" srcset="" />
+                    </div>
                 </div>
             </div>
         </div>
-        
-            <!--/ Method. -->
+        <!--/ Method. -->
     </section>
 
-    <section class="section hero is-light">
-        <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
                 <h2 class="title is-3">Experiment Results</h2>
-                <div class="content has-text-justified">
-                    <p>
-                        We evaluated our model on the RLBench platform, focusing on tasks with high occlusion and dynamic viewpoints. To measure occlusion, we introduced the Task Occlusion Rate (TOR). Our model was compared against baseline models, including C2FARM and Behavior Cloning, under both fixed and active camera setups.
-                    </p>
-                    <p>
-                        Our model achieved the highest success rates across all tasks and demonstrated shorter episode lengths, indicating improved task efficiency compared to the baselines.
-                    </p>
-                    <div class="content" style="margin-top: 30px;"></div>
-                        <img src="./static/images/table.png" alt="" srcset="" />
-                    </div>
-                    <div class="content" style="margin-top: 30px;">
-                        <img src="./static/images/combined_viewpoints.png" alt="" srcset="" />
-                    </div>
-                </div>
+            </div>
+            <p>
+                We evaluated our model on the RLBench platform, focusing on tasks with high occlusion and dynamic viewpoints. To measure occlusion, we introduced the Task Occlusion Rate (TOR). Our model was compared against baseline models, including C2FARM and Behavior Cloning, under both fixed and active camera setups.
+            </p>
+            <p>
+                Our model achieved the highest success rates across all tasks and demonstrated shorter episode lengths, indicating improved task efficiency compared to the baselines.
+            </p>
+            <div class="content" style="margin-top: 30px;">
+                <img src="./static/images/table.png" alt="" srcset="" style="max-width: 100%; height: auto;"/>
+            </div>
+            <div class="content" style="margin-top: 30px;">
+                <img src="./static/images/combined_viewpoints.png" alt="" srcset="" style="max-width: 100%; height: auto;" />
             </div>
         </div>
     </section>
