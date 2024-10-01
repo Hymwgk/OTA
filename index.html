@@ -1,1265 +1,1067 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Observe Then Act: Asynchronous Active Vision-Action Model for Robotic Manipulation">
-<!--   
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description"
+        content="Observe Then Act: Asynchronous Active Vision-Action Model for Robotic Manipulation">
+    <!--   
   <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
   <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
   <meta property="og:url" content="URL OF THE WEBSITE"/> -->
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/> -->
 
 
-  <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+    <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
   <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
   <meta name="twitter:card" content="summary_large_image"> -->
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="robotic manipulation, asynchronous model, vision-action model, Observe Then Act">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="robotic manipulation, asynchronous model, vision-action model, Observe Then Act">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>OTA</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+    <title>OTA</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
 </head>
+
 <body>
 
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Observe Then Act: Asynchronous Active
-              Vision-Action Model for Robotic Manipulation</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Guokang Wang</a><sup>1</sup>,</span> 
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Hang Li</a><sup>2</sup>,</span> 
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Shuyuan Zhang</a><sup>2</sup>,</span> 
-                    <span class="author-block">
-                      <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Yanhong Liu</a><sup>1,*</sup>,</span>
-                        <span class="author-block">
-                          <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Huaping Liu</a><sup>3,*</sup>,</span>
-    
-                  </span>
-                  </div>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Observe Then Act: Asynchronous Active
+                            Vision-Action Model for Robotic Manipulation</h1>
+                        <div class="is-size-5 publication-authors">
+                            <!-- Paper authors -->
+                            <span class="author-block">
+                                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Guokang
+                                    Wang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Hang Li</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Shuyuan
+                                    Zhang</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Yanhong
+                                    Liu</a><sup>1,*</sup>,</span>
+                            <span class="author-block">
+                                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Huaping
+                                    Liu</a><sup>3,*</sup>,</span>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>Zhengzhou University,</span>
-                    <span class="author-block"><sup>2</sup>Beijing University of Posts and Telecommunications,</span>
-                    <span class="author-block"><sup>3</sup>Tsinghua University,</span>
-                    <span class="author-block"><sup>*</sup>Corresponding Author</span>                  </div>
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+                            </span>
+                        </div>
 
-                  </span>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Zhengzhou University,</span>
+                            <span class="author-block"><sup>2</sup>Beijing University of Posts and
+                                Telecommunications,</span>
+                            <span class="author-block"><sup>3</sup>Tsinghua University,</span>
+                            <span class="author-block"><sup>*</sup>Corresponding Author</span>
+                        </div>
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- Arxiv PDF link -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/2409.14891" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
 
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
+                                </span>
 
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                                <!-- Github link -->
+                                <span class="link-block">
+                                    <a href="https://hymwgk.github.io/ota/" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+
+                                <!-- ArXiv abstract Link -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2409.14891" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-<!-- Teaser video-->
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
-        <!-- Your video here -->
-        <!-- <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section> -->
-<!-- End teaser video -->
-
-
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            In real-world scenarios, many robotic manipulation tasks are hindered by occlusions and limited fields of view, posing significant challenges for passive observation-based models that rely on fixed or wrist-mounted cameras.
-          </p>
-          <p>
-            In this paper, we investigate the problem of robotic manipulation under limited visual observation and  propose a task-driven asynchronous active vision-action model.Our model serially connects a camera Next-Best-View (NBV) policy with a gripper Next-Best Pose (NBP) policy, and trains them in a sensor-motor coordination framework using few-shot reinforcement learning. This approach allows the agent to adjust a third-person camera to actively observe the environment based on the task goal, and subsequently infer the appropriate manipulation actions.
-          </p>
-          <p>
-            We trained and evaluated our model on 8 viewpoint-constrained tasks in RLBench. The results demonstrate that our model consistently outperforms baseline algorithms, showcasing its effectiveness in handling visual constraints in manipulation tasks. Our code and demonstration videos are available at 
-          </p>
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            In real-world scenarios, many robotic manipulation tasks are hindered by occlusions and limited fields of view, posing significant challenges for passive observation-based models that rely on fixed or wrist-mounted cameras.
+                        </p>
+                        <p>
+                            In this paper, we investigate the problem of robotic manipulation under limited visual observation and  propose a task-driven asynchronous active vision-action model. Our model serially connects a camera Next-Best-View(NBV) policy with a gripper Next-Best-Pose(NBP) policy, and trains them in a sensor-motor coordination framework using few-shot reinforcement learning. This approach enables the agent to reposition a third-person camera to actively observe the environment based on the task goal, and subsequently determine the appropriate manipulation actions.
+                        </p>
+                        <p>
+                            We trained and evaluated our model on 8 viewpoint-constrained tasks in RLBench. The results demonstrate that our model consistently outperforms baseline algorithms, showcasing its effectiveness in handling visual constraints in manipulation tasks. 
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!--/ Abstract. -->
-  <!-- Method. -->
-  <div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
-      <h2 class="title is-3">Method</h2>
-      <div class="content has-text-justified">
-        <p>
-          Here is brief method description.
-        </p>
-      </div>
-      <div class="content" style="margin-top: 30px;">
-        <img src="./static/images/framework.png" alt="" srcset="" />
-    </div>
-  </div>
-  <!--/ Method. -->
-</section>
+        <!--/ Abstract. -->
 
-<section class="section hero is-light">
-  <div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
-      <h2 class="title is-3">Experiment Results</h2>
-      <div class="content has-text-justified">
-        <p>
-          We evaluate OTA in ...
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- Method. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Method</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We introduce a task-driven asynchronous active vision-action model for robotic manipulation in scenarios with limited observation. The model uses a dual-agent structure, with a Next-Best-View (NBV) agent selecting optimal viewpoints and a Next-Best-Pose (NBP) agent determining gripper actions based on those viewpoints. It alternates between sensor and motor actions to actively interact with the environment and achieve task goals.
+                    </p>
+                    <p>
+                        The model is trained using few-shot reinforcement learning, with viewpoint-aware demo augmentation to maximize the use of limited demonstrations. A viewpoint-centric voxel alignment technique is employed to reduce observation space complexity, and task-agnostic auxiliary rewards help stabilize training by promoting effective interactions and informative viewpoint selection.
+                    </p>
+                </div>
+                <div class="content" style="margin-top: 30px;">
+                    <img src="./static/images/framework.png" alt="" srcset="" />
+                </div>
+            </div>
+        </div>
+        
+            <!--/ Method. -->
+    </section>
+
+    <section class="section hero is-light">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Experiment Results</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We evaluated our model on the RLBench platform, focusing on tasks with high occlusion and dynamic viewpoints. To measure occlusion, we introduced the Task Occlusion Rate (TOR). Our model was compared against baseline models, including C2FARM and Behavior Cloning, under both fixed and active camera setups.
+                    </p>
+                    <p>
+                        Our model achieved the highest success rates across all tasks and demonstrated shorter episode lengths, indicating improved task efficiency compared to the baselines.
+                    </p>
+                    <div class="content" style="margin-top: 30px;"></div>
+                        <img src="./static/images/table.png" alt="" srcset="" />
+                    </div>
+                    <div class="content" style="margin-top: 30px;">
+                        <img src="./static/images/combined_viewpoints.png" alt="" srcset="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+
+        <div class="container is-max-desktop">
+            <h2 class="title is-4">Multi-task Videos</h2>
+
+            <!-- Task 1 -->
+            <h2 class="title is-5">Basketball in Hoopr</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/basketball_in_hoopr/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <h2 class="title is-5">Meat off Grill</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_off_grill/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <h2 class="title is-5">Meat on Grill</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/meat_on_grill/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <h2 class="title is-5">Open Drawer</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/open_drawer/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 5 -->
+            <h2 class="title is-5">Press Switch</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/press_switch/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 6 -->
+            <h2 class="title is-5">Put Rubbish in Bin</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/put_rubbish_in_bin/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 7 -->
+            <h2 class="title is-5">Take Money out Safe</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/take_money_out_safe/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 8 -->
+            <h2 class="title is-5">Unplug Charger</h2>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 1
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/1.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 2
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/2.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#76B900"><b>Success</b></font>: Episode 3
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/3.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            <font color="#FF4500"><b>Failure Case</b></font>
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/4.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/5.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/6.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/7.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content" , style="text-align: center;">
+                        <p>
+                            Camera View
+                        </p>
+                        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%"
+                            onloadstart="this.playbackRate=2">
+                            <source src="./static/video/videos/unplug_charger/8.mp4" type="video/mp4"
+                                class="figure-img img-fluid rounded">
+                        </video>
+                    </div>
+                </div>
+            </div>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-      <h2 class="title is-4">Multi-task Videos</h2>
-
-      <h2 class="title is-5">Put in Drawer</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/put_in_drawer/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: put the item in the top drawer
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/put_in_drawer/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: put the item in the middle drawer
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/put_in_drawer/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: put the item in the bottom drawer
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/put_in_drawer/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: put the item in the bottom drawer
-              </p>
-              </div>
-          </div>
-      </div>
-
-      <h2 class="title is-5">Sweep to Dustpan</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/sweep_to_dustpan/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: sweep dirt to the short dustpan
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/sweep_to_dustpan/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: sweep dirt to the short dustpan
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/sweep_to_dustpan/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: sweep dirt to the short dustpan
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/sweep_to_dustpan/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: sweep dirt to the tall dustpan
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Meat off Grill</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_off_grill/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: take the steak off the grill
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_off_grill/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: take the steak off the grill
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_off_grill/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: take the steak off the grill
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_off_grill/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: take the chicken off the grill
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Open Drawer</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_drawer/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: open the top drawer
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_drawer/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: open the middle drawer
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_drawer/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: open the top drawer
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_drawer/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: open the bottom drawer
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Turn Tap</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/turn_tap/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: turn right tap
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/turn_tap/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: turn left tap
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/turn_tap/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: turn left tap
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/turn_tap/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: turn right tap
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Close Jar</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/close_jar/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: close the red jar
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/close_jar/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: close the cyan jar
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/close_jar/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: close the azure jar
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/close_jar/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: close the navy jar
-              </p>
-              </div>
-          </div>
-      </div>
-
-      <h2 class="title is-5">Drag Stick</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/drag_stick/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: use the stick to drag the cube onto the navy target
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/drag_stick/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: use the stick to drag the cube onto the red target
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/drag_stick/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: use the stick to drag the cube onto the violet target
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/drag_stick/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: use the stick to drag the cube onto the red target
-          </p>
-          </div>
-      </div>
-      </div>
-
-      <h2 class="title is-5">Stack Blocks</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_blocks/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: stack 3 yellow blocks
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_blocks/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: stack 2 red blocks
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_blocks/3f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: stack 3 teal blocks
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_blocks/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: stack 4 navy blocks
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Screw Bulb</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/screw_bulb/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: screw in the blue light bulb
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/screw_bulb/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: screw in the rose light bulb
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/screw_bulb/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: screw in the blue light bulb
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/screw_bulb/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: screw in the white light bulb
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Slide Block</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/slide_block/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: slide the block to blue target
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/slide_block/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: slide the block to green target
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/slide_block/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: slide the block to pink target
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/slide_block/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: slide the block to pink target
-          </p>
-          </div>
-      </div>
-      </div>
-
-      <h2 class="title is-5">Put in Safe</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_safe/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the money away in the safe on the top shelf
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_safe/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the money away in the safe on the middle shelf
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_safe/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the money away in the safe on the bottom shelf
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_safe/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the money away in the safe on the middle shelf
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Place Wine</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/place_wine/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: stack the wine bottle to the left of the rack
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/place_wine/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: stack the wine bottle to the middle of the rack
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/place_wine/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: stack the wine bottle to the right of the rack
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/place_wine/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: stack the wine bottle to the middle of the rack
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Put in Cupboard</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_cupboard/5.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the coffee in the cupboard
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_cupboard/6.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the coffee in the cupboard
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_cupboard/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the mustard jello in the cupboard
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/put_in_cupboard/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: put the crackers in the cupboard
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Sort Shape</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/sort_shape/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the star in the shape sorter
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/sort_shape/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the cylinder in the shape sorter
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/sort_shape/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the cylinder in the shape sorter
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/sort_shape/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: put the triangular prism in the shape sorter
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Push Buttons</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/push_buttons/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: push the maroon button, then push the green button, then push the navy button
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/push_buttons/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: push the maroon button
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/push_buttons/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: push the maroon button, then push the green button
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/push_buttons/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: push the maroon button, then push the blue button
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Insert Peg</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/insert_peg/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the ring on the black spoke
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/insert_peg/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the ring on the purple spoke
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/insert_peg/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#76B900"><b>Success</b></font>: put the ring on the azure spoke
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/insert_peg/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: put the ring on the orange spoke
-          </p>
-          </div>
-      </div>
-      </div>
-      <h2 class="title is-5">Stack Cups</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_cups/1f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: stack the other cups on top of the maroon cup
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_cups/2f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: stack the other cups on top of the maroon cup
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_cups/3f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: stack the other cups on top of the violet cup
-          </p>
-          </div>
-      </div>
-      <!-- <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/stack_cups/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: stack the other cups on top of the gray cup
-          </p>
-          </div>
-      </div> -->
-      </div>
-      <h2 class="title is-5">Place Cups</h2>
-      <div class="columns is-centered">
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/place_cups/1f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: place 3 cups on the cup holder
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/place_cups/2f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: place 2 cups on the cup holder
-          </p>
-          </div>
-      </div>
-      <div class="column">
-          <div class="content">
-          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-              <source src="./static/video/videos/place_cups/3f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-          </video>
-          <p>
-              <font color="#FF4500"><b>Failure</b></font>: place 2 cups on the cup holder
-          </p>
-          </div>
-      </div>
-      </div>
-
-
-      <h2 class="title is-4">Few-shot Videos</h2>
-
-      <h2 class="title is-5">Meat on Grill</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_on_grill/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: put the steak on the grill
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_on_grill/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: put the steak on the grill
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_on_grill/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: put the chicken on the grill
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/meat_on_grill/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: put the steak on the grill
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Open Jar</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_jar/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: open the olive jar
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_jar/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: open the red jar
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_jar/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: open the azure jar
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/open_jar/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: open the silver jar
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Screw Nail</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/screw_nail/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: screw the nail in to the block
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/screw_nail/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: screw the nail in to the block
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/screw_nail/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: screw the nail in to the block
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/screw_nail/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: screw the nail in to the block
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Solve Puzzle</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/solve_puzzle/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: solve the puzzle
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/solve_puzzle/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: solve the puzzle
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/solve_puzzle/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: solve the puzzle
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/solve_puzzle/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: solve the puzzle
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Toilet Seat Down</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/toilet_seat_down/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: toilet seat down
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/toilet_seat_down/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: toilet seat down
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/toilet_seat_down/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: toilet seat down
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/toilet_seat_down/4.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: toilet seat down
-              </p>
-              </div>
-          </div>
-      </div>
-      <h2 class="title is-5">Tv on</h2>
-      <div class="columns is-centered">
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/tv_on/1.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: turn on the TV
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/tv_on/2.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: turn on the TV
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/tv_on/3.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#76B900"><b>Success</b></font>: turn on the TV
-              </p>
-              </div>
-          </div>
-          <div class="column">
-              <div class="content">
-              <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%" onloadstart="this.playbackRate=2">
-                  <source src="./static/video/videos/tv_on/4f.mp4.h264.mp4" type="video/mp4" class="figure-img img-fluid rounded">
-              </video>
-              <p>
-                  <font color="#FF4500"><b>Failure</b></font>: turn on the TV
-              </p>
-              </div>
-          </div>
-      </div>
-  </div>
-  
-</section>
+        </div>
 
 
 
 
-<!-- Image carousel -->
-<!-- <section class="hero is-small">
+    </section>
+
+
+
+
+    <!-- Image carousel -->
+    <!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item"> -->
-        <!-- Your image here -->
-        <!-- <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+    <!-- Your image here -->
+    <!-- <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           First image description.
         </h2>
       </div>
       <div class="item"> -->
-        <!-- Your image here -->
-        <!-- <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+    <!-- Your image here -->
+    <!-- <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Second image description.
         </h2>
       </div>
       <div class="item"> -->
-        <!-- Your image here -->
-        <!-- <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+    <!-- Your image here -->
+    <!-- <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
          Third image description.
        </h2>
      </div>
      <div class="item"> -->
-      <!-- Your image here -->
-      <!-- <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+    <!-- Your image here -->
+    <!-- <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Fourth image description.
       </h2>
@@ -1268,56 +1070,56 @@
 </div>
 </div>
 </section> -->
-<!-- End image carousel -->
+    <!-- End image carousel -->
 
 
 
 
-<!-- Youtube video -->
-<!-- <section class="hero is-small is-light">
+    <!-- Youtube video -->
+    <!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container"> -->
-      <!-- Paper video. -->
-      <!-- <h2 class="title is-3">Video Presentation</h2>
+    <!-- Paper video. -->
+    <!-- <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
           <div class="publication-video"> -->
-            <!-- Youtube embed code here -->
-            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Youtube embed code here -->
+    <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section> -->
-<!-- End youtube video -->
+    <!-- End youtube video -->
 
 
-<!-- Video carousel -->
-<!-- <section class="hero is-small">
+    <!-- Video carousel -->
+    <!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
-            <!-- Your video file here -->
-            <!-- <source src="static/videos/carousel1.mp4"
+    <!-- Your video file here -->
+    <!-- <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
-            <!-- Your video file here -->
-            <!-- <source src="static/videos/carousel2.mp4"
+    <!-- Your video file here -->
+    <!-- <source src="static/videos/carousel2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
-            <!-- Your video file here -->
-            <!-- <source src="static/videos/carousel3.mp4"
+    <!-- Your video file here -->
+    <!-- <source src="static/videos/carousel3.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -1325,15 +1127,15 @@
     </div>
   </div>
 </section> -->
-<!-- End video carousel -->
+    <!-- End video carousel -->
 
 
 
 
 
 
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
+    <!-- Paper poster -->
+    <!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -1344,48 +1146,51 @@
       </div>
     </div>
   </section> -->
-<!--End paper poster -->
+    <!--End paper poster -->
 
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>
-        @article{OTA2024,
-        author={Guokang Wang, Hang Li, Shuyuan Zhang, Yanhong Liu, Huaping Liu},
-        title={Observe Then Act: Asynchronous Active Vision-Action Model for Robotic Manipulation},
-        journal={xxx},
-        year={2024},}
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+@article{wang2024observe,
+    title={Observe Then Act: Asynchronous Active Vision-Action Model for Robotic Manipulation},
+    author={Wang, Guokang and Li, Hang and Zhang, Shuyuan and Liu, Yanhong and Liu, Huaping},
+    journal={arXiv preprint arXiv:2409.14891},
+    year={2024}
+}
       </code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This website is adapted from<a href="https://github.com/nerfies/nerfies.github.io"> Nerfies</a>, licensed
-            under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-              Commons Attribution-ShareAlike 4.0 International License.</a>
-          </p>
-
         </div>
-      </div>
-    </div>
-  </div>
-</footer>
+    </section>
+    <!--End BibTex citation -->
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+
+                        <p>
+                            This website is adapted from<a href="https://github.com/nerfies/nerfies.github.io">
+                                Nerfies</a>, licensed
+                            under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License.</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
 
-  </body>
-  </html>
+</body>
+
+</html>
