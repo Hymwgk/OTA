@@ -138,9 +138,6 @@
                         <p>
                             In this paper, we investigate the problem of robotic manipulation under limited visual observation and  propose a task-driven asynchronous active vision-action model. Our model serially connects a camera Next-Best-View(NBV) policy with a gripper Next-Best-Pose(NBP) policy, and trains them in a sensor-motor coordination framework using few-shot reinforcement learning. This approach enables the agent to reposition a third-person camera to actively observe the environment based on the task goal, and subsequently determine the appropriate manipulation actions.
                         </p>
-                        <p>
-                            We trained and evaluated our model on 8 viewpoint-constrained tasks in RLBench. The results demonstrate that our model consistently outperforms baseline algorithms, showcasing its effectiveness in handling visual constraints in manipulation tasks. 
-                        </p>
                     </div>
                 </div>
             </div>
@@ -152,10 +149,10 @@
                     <h2 class="title is-3">Method</h2>
                     <div class="content has-text-justified">
                         <p>
-                            We introduce a task-driven asynchronous active vision-action model for robotic manipulation in scenarios with limited observation. The model uses a dual-agent structure, with a Next-Best-View (NBV) agent selecting optimal viewpoints and a Next-Best-Pose (NBP) agent determining gripper actions based on those viewpoints. It alternates between sensor and motor actions to actively interact with the environment and achieve task goals.
-                        </p>
-                        <p>
-                            The model is trained using few-shot reinforcement learning, with viewpoint-aware demo augmentation to maximize the use of limited demonstrations. A viewpoint-centric voxel alignment technique is employed to reduce observation space complexity, and task-agnostic auxiliary rewards help stabilize training by promoting effective interactions and informative viewpoint selection.
+                            Our model uses a dual-agent structure, with a Next-Best-View (NBV) agent selecting 
+                            optimal viewpoints and a Next-Best-Pose (NBP) agent determining gripper actions based on 
+                            those viewpoints. It alternates between sensor and motor actions to actively interact with 
+                            the environment and achieve task goals.
                         </p>
                     </div>
                     <div class="content" style="margin-top: 30px;">
@@ -174,15 +171,51 @@
             </div>
             <div class="content has-text-justified">
                 <p>
-                    We evaluated our model on the RLBench platform, focusing on tasks with high occlusion and dynamic viewpoints. To measure occlusion, we introduced the Task Occlusion Rate (TOR). Our model was compared against baseline models, including C2FARM and Behavior Cloning, under both fixed and active camera setups.
+                    We trained and evaluated our model on RLBench, a widely used public benchmark for 
+                    robotic manipulation. We selected 8 tasks from RLBench following two criteria: (1)
+                     each task must include at least one RLBench default viewpoint with significant visual
+                      occlusion, and (2) no single fixed or wrist-mounted camera provides consistently 
+                      low occlusion across the selected tasks.  We compared our model against three baseline categories:                  
                 </p>
-                <p>
-                    Our model achieved the highest success rates across all tasks and demonstrated shorter episode lengths, indicating improved task efficiency compared to the baselines.
-                </p>
+
+                  <ol>
+                    <li>
+                      Visual manipulation models that utilize static third-person and wrist-mounted cameras, active third-person camera-based models.
+                    </li>
+                    <li>
+                      Behavior Cloning (BC) to test its ability to learn new sensor-motor skills beyond 
+                      demonstration imitation. Additionally, we included a Random Viewpoint model, 
+                      which shares the same architecture as ours but with the NBV policy network disabled 
+                      (learning rate set to zero). This setup assesses the performance gain from active viewpoint 
+                      adjustment versus random selection.
+                    </li>
+                    <li>
+                      Oracle, which utilizes a fully fused image from all default camera views in RLBench.
+                    </li>
+                  </ol>
+                  <p>
+                    For the first category, we compared our model to C2FARM (C2F) using static 
+                    <em>front</em>, <em>overhead</em>, <em>wrist</em>, and <em>front + wrist (f+w)</em> camera settings 
+                    to evaluate the effectiveness of our active vision-action model in handling tasks with limited observability. For the Oracle baseline, we disabled the NBV viewpoint selection ability since full camera views were always accessible.
+                    The statistical results on the selected tasks are shown in the table below.
+                  </p>
             </div>
             <div class="content" style="margin-top: 30px;">
                 <img src="./static/images/table.png" alt="" srcset="" style="max-width: 100%; height: auto;"/>
             </div>
+
+            <div class="content has-text-justified">
+                <p>
+                    The figure below illustrates the learned camera viewpoints for various tasks, comparing demo viewpoints (red squares),
+                    Behavior Cloning (BC) learned viewpoints (green circles), and our model's learned viewpoints (blue triangles). 
+                    Our model demonstrates more task-relevant and adaptive viewpoint distributions: tasks like basketball_in_hoop and put_rubbish_in_bin exhibit focused clustering, 
+                    while tasks like meat_on_grill and open_drawer showcase broader coverage, 
+                    reflecting enhanced generalization through interaction-driven learning. This highlights our model's ability to learn beyond imitation, 
+                    achieving higher task performance compared to BC.
+                </p>
+            </div>
+
+
             <div class="content" style="margin-top: 30px;">
                 <img src="./static/images/combined_viewpoints.png" alt="" srcset="" style="max-width: 100%; height: auto;" />
             </div>
